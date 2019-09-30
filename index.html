@@ -1,12 +1,14 @@
 <html>
 <body>
 <h1>我叫<span id="myname"></span></h1>
-    <p>我的学号是<span id="mynumber"></span>
+    <p>我的学号是<span id="mynumber"></span><br>
+        <input type="button" value="下一个" id="btn">
         <br>
-        <img src="matrix.png"/>
-        <br>
+        <img src="matrix.png"/><br>
         <img id="logo" src="logo.jpg" style="border-radius: 20px 40px 60px 80px"/>
+        
     </p>
+    
     <script src="jquery-3.4.1.js"></script>
     <script>
     $(function(){
@@ -14,6 +16,14 @@
             $("#myname").text(result.myname);
             $("#mynumber").text(result.mynumber);
         });
+    })
+        
+    $("#btn").click(function(){
+            $.get("./data1.json",function(result){
+                $("mynumber").text(result.myname);
+                $("#mynumber").text(result.mynumber);
+            })
+        
     })
     </script>
     </body>
