@@ -12,14 +12,21 @@
     <script src="jquery-3.4.1.js"></script>
     <script>
     $(function(){
-        $.get("http://10.30.201.60:8585/data.json",function(result){
+        var callback=function(result){
             $("#myname").text(result.myname);
             $("#mynumber").text(result.mynumber);
-        });
-    })
+        }
+        $.ajax("http://127.0.0.1:8585/data.json",{
+            type:"POST",
+            success:callback
+        })
+    //     $.post("http://127.0.0.1:8585/data.json",function(result){
+            
+    //     });
+     })
         
     $("#btn").click(function(){
-            $.get("http://10.30.201.60:8585/data1.json",function(result){
+            $.post("http://127.0.0.1:8585/data1.json",function(result){
                 $("#myname").text(result.myname);
                 $("#mynumber").text(result.mynumber);
             })
